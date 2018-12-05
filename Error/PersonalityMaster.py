@@ -6,7 +6,10 @@ class PersonalityMaster:
 
   def increment_one(self):
 
+    print("yeah")
+
     self.__value += 1
+    print(self.__value)
 
   def increment_two(self):
 
@@ -30,6 +33,8 @@ class PersonalityMaster:
     else:
       print("Result 4")
     return result
+
+#PersonalityMaster()
       
 
     

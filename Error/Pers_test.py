@@ -1,13 +1,15 @@
 from tkinter import *
 #import pers_test_score as a
-from PersonalityMaster import PersonalityMaster
-import PersonalityMaster as a
+#from PersonalityMaster import PersonalityMaster
+from PersonalityMaster import *
 
 class PersTestGui:
   
   def __init__(self):
     
     self.__i = 0
+
+    self.__instance = PersonalityMaster()
 
     
     self.__window = Tk()
@@ -18,9 +20,9 @@ class PersTestGui:
     self.__label.grid(columnspan = 3)
 
 
-    self.__button1 = Button(self.__window, text = "What friends?",
-                            command = self.count_up_one)
-    #self.__button1.bind("<Button-1>", a.pers_test_score.answer_one)
+    self.__button1 = Button(self.__window, text = "What friends?")
+                            #command = self.count_up_one)
+    self.__button1.bind("<Button-1>", self.count_up_one)
     self.__button1.grid(row = 1, column = 0)
 
     self.__button2 = Button(self.__window, text = "It's nice of them to" +\
@@ -52,8 +54,8 @@ class PersTestGui:
     
     self.__window.mainloop()
 
-  def count_up_one(self):
-    self.__PersonalityMaster.increment_one()
+  def count_up_one(self,event):
+    self.__instance.increment_one()
 
   def count_up_two(self):
     self.__PersonalityMaster.increment_two()
