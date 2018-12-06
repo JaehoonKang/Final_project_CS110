@@ -5,7 +5,7 @@ def guessingLogicTester():
     this_game = guessingGame()
 
     print(this_game.answer)
-    
+
     user_str = input("What is your gueess?")
 
     while user_str:
@@ -16,7 +16,7 @@ def guessingLogicTester():
 
             user_str = input("What is your guess?:  ")
 
-        while not this_game.is_greater(user_str):
+        while not this_game.is_range(user_str):
 
             print("Your number is not in the range")
 
