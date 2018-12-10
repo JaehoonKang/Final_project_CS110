@@ -51,18 +51,51 @@ Shanghai / Seoul / Mumbai/ Ciudad_de_México/ São_Paulo")
     def show_pop(self):
 
         city_str = self.__entry_guess.get()
-
         
-
-        '''
+        
         if city_str == "":
             print('First')
             self.__header.set("You should type in a character")
             self.__label_intro.config(fg="red", bg="yellow")
             self.__data.reset()
             print("pass")
-            
+
+                  
         else:
+
+            if not self.__data.check_alpha(city_str):
+                print("second")
+                self.__header.set("You should only type in a valid city name \
+(Correct Spellings required, No number or special characters)")
+                self.__label_intro.config(fg="red", bg="yellow")
+                self.__data.reset()
+                print("pass")
+
+            else:
+                
+                city_strip = self.__data.convert_strip(city_str)
+            
+                city_lower = self.__data.convert_lower(city_strip)
+                ##print(city_lower)
+
+                city_split = self.__data.name_split(city_lower)
+                ##print(city_split)
+
+                city_format = self.__data.convert_format(city_split)
+
+                print(city_format)
+                
+                pop_tp = self.__data.get_pop(city_format)
+                
+                pop = pop_tp[0]
+                self.__header.set("Population: %s" %(pop))
+                
+                self.__data.reset()
+                ##print(city_format)     
+            
+        
+            '''
+            
             if not self.__data.check_alpha(city_str):
                 print("second")
                 self.__header.set("You should only type in a valid city name \
@@ -72,12 +105,14 @@ Shanghai / Seoul / Mumbai/ Ciudad_de_México/ São_Paulo")
                 print("pass")
             else:
                 print("third")
+                
                 city = self.__data.convert_char(city_str)
                 #print(city)
                 pop_tp = self.__data.get_pop(city)
                 pop = pop_tp[0]
                 self.__header.set("Population of %s: %s" %(city_str, pop))
                 self.__data.reset()
+
             '''
 
 CityClass()
